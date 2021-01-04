@@ -94,7 +94,7 @@ def update_ui():
     text.delete("1.0", "end")
     text.insert("1.0", "\n".join([
         "{0}: {1}".format(
-            source["src"] if not source["dst"] else "{0}>{1}".format(source, source["dst"]),
+            source["src"] if not source["dst"] else "{0}>{1}".format(source["src"], source["dst"]),
             source["status"] if source["status"] != "processing" else progress_info(source)
         ) for source in sources
     ]))
@@ -186,6 +186,7 @@ if os.path.exists(cfg_path):
         pass
 
 root = Tk()
+root.title("x2mp3")
 
 root_frame = Frame(root)
 root_frame.pack(expand=1, fill="both", padx=8, pady=8)
@@ -211,6 +212,10 @@ remove.set(False)
 Checkbutton(f, text="Remove sources after processing", var=remove).pack(side="left")
 Frame(f, width=8).pack(side="left")
 Button(f, text="Process", command=process).pack(side="left")
+
+Frame(root_frame, height=8).pack()
+
+info = Label(root_frame, text="Note: you can specify the path to the destination file as follows: src.ext>dst.ext (src mp3.ext if not specified)").pack(anchor="w")
 
 Frame(root_frame, height=8).pack()
 
