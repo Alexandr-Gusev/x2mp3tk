@@ -215,7 +215,7 @@ Button(f, text="Process", command=process).pack(side="left")
 
 Frame(root_frame, height=8).pack()
 
-info = Label(root_frame, text="Note: you can specify the path to the destination file as follows: src.ext>dst.ext (src mp3.ext if not specified)").pack(anchor="w")
+info = Label(root_frame, text="Note: you can specify the path to the destination file as follows: src.ext>dst.ext (src mp3.ext will be used if not specified)").pack(anchor="w")
 
 Frame(root_frame, height=8).pack()
 
